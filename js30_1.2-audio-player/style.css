@@ -90,3 +90,84 @@ body {
    display: flex;
    gap: 30px; /* Space between buttons */
 }
+
+@media (max-width: 1024px) {
+    .wrapper {
+        width: 768px;
+    }
+
+    #player {
+        width: 400px;
+        height: 400px;
+    }
+
+    .control-button {
+        border: 3px solid orange;
+        font-size: 20px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .control-button:hover {
+        border: 3px solid #ff6a00;
+    }
+
+    #controls {
+        gap: 15px;
+    }
+
+    #progress-bar {
+        width: 300px;
+        height: 12px;
+    }
+
+    #progress-bar::-webkit-slider-thumb {
+        width: 8px; /* Set a specific slider handle width */
+        height: 14px; /* Slider handle height */
+    }
+
+    #track-controls {
+       gap: 25px; /* Space between buttons */
+    }
+
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        width: 400px;
+    }
+
+    #player {
+        width: 300px;
+        height: 300px;
+    }
+
+    .control-button {
+        border: 2px solid orange;
+        font-size: 15px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .control-button:hover {
+        border: 2px solid #ff6a00;
+    }
+
+    #controls {
+        gap: 12px;
+    }
+
+    #progress-bar {
+        width: 250px;
+        height: 10px;
+    }
+
+    #progress-bar::-webkit-slider-thumb {
+        width: 6px; /* Set a specific slider handle width */
+        height: 12px; /* Slider handle height */
+    }
+
+    #track-controls {
+       gap: 20px; /* Space between buttons */
+    }
+}
