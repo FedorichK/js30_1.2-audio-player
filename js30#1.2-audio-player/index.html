@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio player</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="./ico.ico">
+</head>
+<body>
+    <div class="wrapper">
+        <div id="player-wrapper">
+            <div id="player">
+                <audio id="audio">
+                    <source id="src" src="track1.mp3" type="audio/mpeg">
+                </audio>
+                <div id="controls">
+                    <button class="control-button" id="play-pause-button" onclick="playPause()">►</button>
+                    <input id="progress-bar" type="range" min="0" max="100" value="0">
+                    <div id="track-controls">
+                        <button class="control-button" onclick="prevTrack()"><<</button>
+                        <button class="control-button" onclick="nextTrack()">>></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
