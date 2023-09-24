@@ -15,8 +15,12 @@
                     <source id="src" src="track1.mp3" type="audio/mpeg">
                 </audio>
                 <div id="controls">
+                    <div id="track-title">Ed Sheeran - Shape of You</div>
                     <button class="control-button" id="play-pause-button" onclick="playPause()">►</button>
                     <input id="progress-bar" type="range" min="0" max="100" value="0">
+                    <div id="time-display">
+                        <span id="current-time">00:00</span> / <span id="duration">00:00</span>
+                    </div>
                     <div id="track-controls">
                         <button class="control-button" onclick="prevTrack()"><<</button>
                         <button class="control-button" onclick="nextTrack()">>></button>

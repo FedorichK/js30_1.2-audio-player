@@ -1,9 +1,15 @@
 let tracks = ["track1.mp3", "track2.mp3", "track3.mp3"];
+let trackTitles = ["Ed Sheeran - Shape of You", "Haddaway - What Is Love", "Robert Cristian x @alisshuka - In The End"];
 let images = ["image1.jpg", "image2.jpg", "image3.jpg"];
 let index = 0; // Current file and image index
 let audio = document.getElementById('audio');
 let progressBar = document.getElementById('progress-bar');
 let playPauseButton = document.getElementById('play-pause-button');
+// New time elements
+let currentTimeDisplay = document.getElementById('current-time');
+let durationDisplay = document.getElementById('duration');
+// New track title element
+let trackTitleDisplay = document.getElementById('track-title');
 
 audio.addEventListener('ended', nextTrack);
 audio.addEventListener('timeupdate', updateProgressBar);
@@ -27,6 +33,8 @@ function nextTrack() { // Switch to the next track
     if (index >= tracks.length) index = 0;
     document.getElementById('src').src = tracks[index];
     document.getElementById('player-wrapper').style.backgroundImage = "url('" + images[index] + "')";
+    // Update track title
+    trackTitleDisplay.textContent = trackTitles[index];
     audio.load();
     audio.play(); // Start playing the track immediately
     playPauseButton.innerHTML = "❚❚"; // Change the button to show the pause icon
@@ -37,6 +45,8 @@ function prevTrack() { // Switch to the previous track
     if (index < 0) index = tracks.length - 1;
     document.getElementById('src').src = tracks[index];
     document.getElementById('player-wrapper').style.backgroundImage = "url('" + images[index] + "')";
+    // Update track title
+    trackTitleDisplay.textContent = trackTitles[index];
     audio.load();
     audio.play(); // Start playing the track immediately
     playPauseButton.innerHTML = "❚❚"; // Change the button to show the pause icon
@@ -46,6 +56,9 @@ function updateProgressBar() { // Update the progress bar
    if(audio.duration) {
        let progress = Math.floor((100 / audio.duration) * audio.currentTime);
        progressBar.value = progress;
+       // Update time display
+       currentTimeDisplay.textContent = formatTime(audio.currentTime);
+       durationDisplay.textContent = formatTime(audio.duration);
    }
 }
 
@@ -54,6 +67,13 @@ function changeProgressBar() { // Change the current time of the audio when the 
        audio.currentTime = (progressBar.value / 100) * audio.duration;
    }
 }
+
+// New function to format time in minutes and seconds
+function formatTime(seconds) {
+    let minutes = Math.floor(seconds / 60);
+    seconds = Math.floor(seconds % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+ }
 
 let audioContext;
 let analyser;
