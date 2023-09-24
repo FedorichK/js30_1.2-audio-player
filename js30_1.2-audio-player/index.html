@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio player</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="./ico.ico">
+</head>
+<body>
+    <div class="wrapper">
+        <div id="player-wrapper">
+            <div id="player">
+                <audio id="audio">
+                    <source id="src" src="track1.mp3" type="audio/mpeg">
+                </audio>
+                <div id="controls">
+                    <div id="track-title">Ed Sheeran - Shape of You</div>
+                    <button class="control-button" id="play-pause-button" onclick="playPause()">►</button>
+                    <input id="progress-bar" type="range" min="0" max="100" value="0">
+                    <div id="time-display">
+                        <span id="current-time">00:00</span> / <span id="duration">00:00</span>
+                    </div>
+                    <div id="track-controls">
+                        <button class="control-button" onclick="prevTrack()"><<</button>
+                        <button class="control-button" onclick="nextTrack()">>></button>
+                    </div>
+                    <button class="control-button" onclick="toggleEqualizer()">EQ</button>
+                </div>
+                <canvas id="equalizer"></canvas>
+            </div>
+        </div>
+
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+          <div>2023 <a href="https://github.com/FedorichK" target="_blank" class="github nav-link">FedorichK</a></div>
+          <a href="https://rs.school/js-en/" target="_blank" class="rss"></a>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
